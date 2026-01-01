@@ -1,53 +1,24 @@
 pipeline {
-    agent any
-    
+    agent any 
+
     stages {
-        stage('Compilation HelloWorld') {
+        stage('Etape 1: Hello') {
             steps {
-                echo 'Compilation HelloWorld'
-                sh 'javac HelloWorld.java'
+                bat 'javac HelloWorld.java'
+                bat 'java HelloWorld'
             }
         }
-        
-        stage('Execution HelloWorld') {
+        stage('Etape 2: Merci') {
             steps {
-                echo 'Execution HelloWorld'
-                sh 'java HelloWorld'
+                bat 'javac Merci.java'
+                bat 'java Merci'
             }
         }
-        
-        stage('Compilation Merci') {
+        stage('Etape 3: DeRien') {
             steps {
-                echo 'Compilation Merci'
-                sh 'javac Merci.java'
+                bat 'javac DeRien.java'
+                bat 'java DeRien'
             }
-        }
-        
-        stage('Execution Merci') {
-            steps {
-                echo 'Execution Merci'
-                sh 'java Merci'
-            }
-        }
-        
-        stage('Compilation DeRien') {
-            steps {
-                echo 'Compilation DeRien'
-                sh 'javac DeRien.java'
-            }
-        }
-        
-        stage('Execution DeRien') {
-            steps {
-                echo 'Execution DeRien'
-                sh 'java DeRien'
-            }
-        }
-    }
-    
-    post {
-        always {
-            echo 'Pipeline terminée !'
         }
     }
 }
